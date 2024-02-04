@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Currículo</title>
+        <style>
+		/* Estilo padrão - Design antigo */
+		body.default {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			padding: 20px;
+			font-size: 16px;
+			color: #333;
+			margin-bottom: 5px;
+			line-height: 1.25;
+			margin: 0px;
+			box-sizing: border-box;
+		}
+
+		body.default h1 {
+			font-size: 28px;
+			margin-bottom: 10px;
+			color: #000;
+		}
+
+		body.default h2 {
+			font-size: 24px;
+			margin-bottom: 10px;
+			color: #555;
+		}
+
+		body.default p {
+			margin-bottom: 5px;
+		}
+
+		body.default .section {
+			margin-bottom: 1%;
+			background-color: #fff;
+			padding: 15px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+		}
+
+		body.default .section-header {
+			margin-bottom: 10px;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+
+		body.default .experience-item {
+			margin-bottom: 15px;
+		}
+
+		body.default .experience-item .date {
+			font-weight: bold;
+		}
+
+		body.default .skills {
+			margin-top: 10px;
+		}
+
+		body.default .skills-item {
+			margin-right: 10px;
+			margin-bottom: 5px;
+			display: inline-block;
+			background-color: #eaeaea;
+			padding: 5px 10px;
+			border-radius: 20px;
+			font-size: 14px;
+			color: #555;
+		}
+
+		/* Estilo alternativo - Design bonito */
+		body.alternative2 {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			padding: 20px;
+			font-size: 16px;
+			color: #333;
+			margin-bottom: 5px;
+			line-height: 1.25;
+			margin: 0px;
+			box-sizing: border-box;
+		}
+
+		body.alternative2 h1 {
+			font-size: 28px;
+			margin-bottom: 10px;
+			color: #0099ff;
+		}
+
+		body.alternative2 h2 {
+			font-size: 24px;
+			margin-bottom: 10px;
+			color: #0099ff;
+		}
+
+		body.alternative2 p {
+			margin-bottom: 5px;
+		}
+
+		body.alternative2 .section {
+			margin-bottom: 1%;
+			background-color: #ffffff;
+			padding: 15px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+		}
+
+		body.alternative2 .section-header {
+			margin-bottom: 10px;
+			font-weight: bold;
+			text-transform: uppercase;
+			color: #00cc66;
+		}
+
+		body.alternative2 .experience-item {
+			margin-bottom: 15px;
+		}
+
+		body.alternative2 .experience-item .date {
+			font-weight: bold;
+		}
+
+		body.alternative2 .skills {
+			margin-top: 10px;
+		}
+
+		body.alternative2 .skills-item {
+			margin-right: 10px;
+			margin-bottom: 5px;
+			display: inline-block;
+			background-color: #dcf5b9;
+			padding: 5px 10px;
+			border-radius: 20px;
+			font-size: 14px;
+			color: #333;
+		}
+
+		/* Botão para alternar entre os estilos */
+		.style-switcher {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.style-switcher button {
+			background-color: #4caf50;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			border-radius: 4px;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		table td {
+			padding: 0px;
+			border: 0px solid #ccc;
+		}
+
+		.rating {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			text-align: left;
+		}
+
+		.rating-label {
+			margin-right: 10px;
+		}
+
+		/* Estilo para o estilo padrão - default */
+		body.default .rating-star {
+			color: #000;
+			font-size: 20px;
+			cursor: pointer;
+			transition: color 0.2s ease-in-out;
+		}
+
+		/* Estilo para o estilo alternativo - alternative2 */
+		body.alternative2 .rating-star {
+			color: #ffc107;
+			font-size: 20px;
+			cursor: pointer;
+			transition: color 0.2s ease-in-out;
+		}
+
+		.rating-star:hover,
+		.rating-star.selected {
+			color: #ffcc00;
+		}
+
+		.rating-stars-all-selected .rating-star {
+			animation: star-glow 1s infinite;
+		}
+
+		.margem-td {
+			padding: 10px;
+			border: 5px solid black;
+		}
+
+		.section {
+			margin-bottom: 40px;
+			page-break-inside: avoid;
+		}
+
+		.section > div {
+			page-break-inside: avoid;
+		}
+
+		.section p {
+            white-space: normal;
+        }
+
+		@keyframes star-glow {
+			0% {
+				color: #ffc107;
+			}
+			50% {
+				color: #ffcc00;
+			}
+			100% {
+				color: #ffc107;
+			}
+		}
+
+        </style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/17.0.10/umd/i18next.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-i18next/11.8.19/react-i18next.min.js"></script>
+    </head>
+    <body class="default">
+        <div class="style-switcher">
+            <button onclick="changeStyle('default')" class="controle-button">Estilo Padrão</button>
+            <button onclick="changeStyle('alternative2')" class="controle-button">Estilo Novo</button>
+            <button onclick="exportToPDF()" class="controle-button">Exportar em PDF</button>
+            <button id="language-button" onclick="toggleLanguage()" class="controle-button" title="Ainda não está funcional">Alternar Idioma</button>
+        </div>
+        <h1>Resume</h1>
+        <table>
+            <tr>
+                <td width="100%">
+                    <div class="section">
+                        <h2>Personal Information</h2>
+                        <p>Vinícius Gomes da Silva</p>
+                        <p>Porto Alegre - RS – Brasil</p>
+                        <p>Date of Birth: 11/01/1988, 35 years old</p>
+                        <p>Email: vgs.aguirre@gmail.com</p>
+                        <p>Mobile: +55 51 983431677</p>
+                        <p>Home: +55 51 984887101</p>
+                        <p>Linkedin: <a href="https://www.linkedin.com/in/vin%C3%ADcius-silva-662bab21/">https://www.linkedin.com/in/vin%C3%ADcius-silva-662bab21/</a></p>
+                    </div>
+                </td>
+                <!--             <td width="35%" class="margem-td">
+                 <div>
+				 <h2 align="right">Competências</h2>
+                    <div class="rating" data-rating="0">
+                        <span class="rating-label"><strong>Resolução de problemas:</strong></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                    </div>
+
+                    <div class="rating" data-rating="0">
+                        <span class="rating-label"><strong>Programação:</strong></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                    </div>
+
+                    <div class="rating" data-rating="0">
+                        <span class="rating-label"><strong>Trabalho em equipe:</strong></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                    </div>
+
+                    <div class="rating" data-rating="0">
+                        <span class="rating-label"><strong>Liderança:</strong></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                    </div>
+
+                    <div class="rating" data-rating="0">
+                        <span class="rating-label"><strong>Proatividade:</strong></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                    </div>
+
+                    <div class="rating" data-rating="0">
+                        <span class="rating-label"><strong>Pensamento Crítico:</strong></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                    </div>
+
+                    <div class="rating" data-rating="0">
+                        <span class="rating-label"><strong>Paixão por Java:</strong></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                        <span class="rating-star"></span>
+                    </div>
+                </div>
+            </td> -->
+            </tr>
+        </table>
+        <div class="section">
+            <h2>Professional Profile</h2>
+            <p>I have built a solid career in the field of Information Technology, gaining expertise in software development, system maintenance, and the implementation of improvements using agile methodologies. Throughout my years of experience, I have worked in large-scale enterprises and multinational corporations, exposing me to dynamic and challenging environments.</p>
+            <p>My professional journey encompasses system development using various technologies, such as Java, Spring Boot, Hibernate, JPA, JDBC, along with proficiency in both relational and non-relational databases. I have hands-on experience in developing and maintaining Microservice APIs, with knowledge in SOAP, REST/RESTful API, XML, and JSON.</p>
+            <p>Furthermore, I possess skills in Docker, Kubernetes, and Azure DevOps, enabling me to work with modern development and deployment environments. I am well-versed in agile methodologies like SCRUM and boast a proven track record of delivering projects on time and within budget.</p>
+			<p>I am dedicated to continuous professional development, constantly seeking updates and enhancements, exploring new technologies, and adopting best practices. With a passion for software development, I am committed to delivering high-quality solutions that meet client needs and enhance process efficiency.
+</p>
+        </div>
+
+        <div class="section">
+            <h2>Academic Background</h2>
+            <p>Analysis and Systems Development – Completed in 2011</p>
+            <p>SENAC-RS Technology College</p>
+            <h3>Courses and Specializations</h3>
+            <ul>
+                <li>Complete Java 2023 - Object-Oriented Programming</li>
+            </ul>
+            <ul>
+                <li>Unit Testing in JAVA: Mastering JUnit, Mockito, and TDD</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills">
+                <span class="skills-item">Java</span>
+                <span class="skills-item">Javascript</span>
+                <span class="skills-item">C++</span>
+                <span class="skills-item">SQL</span>
+                <span class="skills-item">CSS</span>
+                <span class="skills-item">HTML</span>
+                <span class="skills-item">Spring Framework Spring Boot</span>
+                <span class="skills-item">Spring Data</span>
+                <span class="skills-item">Spring MVC</span>
+                <span class="skills-item">Spring Security</span>
+                <span class="skills-item">Hibernate/JPA</span>
+                <span class="skills-item">React JS</span>
+                <span class="skills-item">JDBC</span>
+                <span class="skills-item">Oracle</span>
+                <span class="skills-item">MySQL</span>
+                <span class="skills-item">PL/SQL</span>
+                <span class="skills-item">GitHub</span>
+                <span class="skills-item">Jenkins</span>
+                <span class="skills-item">Agile Methodologies</span>
+                <span class="skills-item">Docker</span>
+                <span class="skills-item">Kubernetes</span>
+                <span class="skills-item">Azure DevOps</span>
+                <span class="skills-item">JUnit</span>
+                <span class="skills-item">Mockito </span>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Languages</h2>
+            <p>Technical English - Advanced</p>
+            <p>General English - Intermediate</p>
+            <p>Spanish - Basic</p>
+			<p>Portuguese - Native</p>
+        </div>
+        <div class="section">
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <h3>Ernst & Young Global Limited</h3>
+                <p>Position: Senior Software Developer</p>
+                <p>Period: February 2022 – Present</p>
+                <p>Key Responsibilities:</p>
+                <ul>
+                    <li>System development using Java, Spring Boot, Hibernate, JPA, JDBC</li>
+                    <li>Requirement analysis</li>
+                    <li>Development and maintenance of Microservice APIs</li>
+                    <li>Proficient in agile methodologies (SCRUM)</li>
+                    <li>Knowledge of SOAP and REST/RESTful API, XML, JSON</li>
+                    <li>Experience with both relational databases (ORACLE, SQL, PLSQL, POSTGRE, MYSQL) and non-relational databases (MongoDB)</li>
+                    <li>Familiarity with Docker, Kubernetes, Azure DevOps</li>
+                </l>
+            </div>
+            <div class="experience-item">
+                <h3>NBC Bank S/A - Banco Múltiplo (Financial Institution)</h3>
+                <p>Position: Software Developer</p>
+                <p>Period: April 2020 – February 18, 2022</p>
+                <p>Key Responsibilities:</p>
+                <ul>
+                    <li>System development using Java, Spring Boot, Hibernate, JPA, JDBC, PL/SQL</li>
+                    <li>Requirement analysis</li>
+                    <li>Development and maintenance of Microservice APIs</li>
+                    <li>Proficient in Pentaho and Kafka</li>
+                    <li>Experience with agile methodologies (SCRUM)</li>
+                    <li>Knowledge of SOAP and REST/RESTful API, XML, JSON</li>
+                    <li>Experience with relational databases (ORACLE, SQL)</li>
+                    <li>Familiarity with Docker, Kubernetes, Azure DevOps</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Salux – Informatização em Saúde (Healthcare Service Provider)</h3>
+                <p>Position: Developer Analyst</p>
+                <p>Period: September 2017 – March 2018</p>
+                <p>Key Responsibilities:</p>
+                <ul>
+                    <li>Development of new features and maintenance of a healthcare-focused system using VB.Net and SQL Server</li>
+                    <li>Implementation of agile methodologies</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Unicred do Brasil (Instituição Financeira Cooperativa)</h3>
+                <p>Position: Software Developer</p>
+                <p>Period: Jan 2015 – Ago 2017</p>
+                <p>Key Responsibilities:</p>
+                <ul>
+                    <li>Development and maintenance of financial systems for credit cooperatives using PowerBuilder and SQL Server</li>
+                    <li>Implementation of agile methodologies</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Tools Software (Financial Market Service Provider)</h3>
+                <p>Position: Software Developer</p>
+                <p>Period: February 2012 – December 2014</p>
+                <p>Key Responsibilities:</p>
+                <ul>
+                    <li>Support and maintenance of the company's financial products using PowerBuilder and Oracle/SQL Server/Sybase</li>
+                    <li>Requirement analysis</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Stefanini IT Solutions (Brazilian Private Multinational)</h3>
+                <p>Position: Junior Software Developer</p>
+                <p>Period: January 2011 – January 2012</p>
+                <p>Key Responsibilities:</p>
+                <ul>
+                    <li>Development of new features and maintenance of systems using PowerBuilder (8 and 11.5), Visual Basic 6, and Oracle</li>
+                    <li>Homologation and deployment for Production</li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            function changeStyle(style) {
+                document.body.className = style;
+            }
+
+            function exportToPDF() {
+                const alternative2Elements = document.querySelectorAll(".alternative2");
+                alternative2Elements.forEach((element) => {
+                    element.style.fontSize = "12px";
+                });
+
+                const defaultElements = document.querySelectorAll(".default");
+                defaultElements.forEach((element) => {
+                    element.style.fontSize = "12px";
+                });
+
+                const buttons = document.querySelectorAll(".controle-button");
+                buttons.forEach((button) => {
+                    button.style.visibility = "hidden"; // Oculta os botões antes da exportação
+                });
+
+                const skillsItems = document.querySelectorAll(".skills-item");
+                skillsItems.forEach((item) => {
+                    item.style.fontSize = "10px";
+                });
+
+                const defaultSkillsItems = document.querySelectorAll(".body.default .skills-item");
+                defaultSkillsItems.forEach((item) => {
+                    item.style.fontSize = "10px";
+                });
+
+                const opt = {
+                    margin: [0, 0, 0, 0],
+                    filename: "Vinicius_Gomes_da_Silva_CV.pdf",
+                    image: { type: "jpeg", quality: 1 },
+                    html2canvas: { scale: 2.5 },
+                    jsPDF: { unit: "mm", format: "a4", orientation: "portrait", format: [210, 297] }, // Ajusta o tamanho da página
+                };
+
+                html2pdf()
+                    .set(opt)
+                    .from(document.body)
+                    .save()
+                    .then(() => {
+                        buttons.forEach((button) => {
+                            button.style.visibility = "visible"; // Exibe novamente os botões após a exportação
+                        });
+
+                        alternative2Elements.forEach((element) => {
+                            element.style.fontSize = "16px";
+                        });
+
+                        defaultElements.forEach((element) => {
+                            element.style.fontSize = "16px";
+                        });
+
+                        skillsItems.forEach((item) => {
+                            item.style.fontSize = "14px";
+                        });
+
+                        defaultSkillsItems.forEach((item) => {
+                            item.style.fontSize = "14px";
+                        });
+                    });
+            }
+
+            function updateRating(element, rating) {
+                element.dataset.rating = rating;
+
+                const stars = element.getElementsByClassName("rating-star");
+                for (let i = 0; i < stars.length; i++) {
+                    if (i < rating) {
+                        stars[i].innerHTML = "&#9733;";
+                    } else {
+                        stars[i].innerHTML = "&#9734;";
+                    }
+                }
+            }
+
+            function initRatings() {
+                const ratingElements = document.getElementsByClassName("rating");
+                for (let i = 0; i < ratingElements.length; i++) {
+                    const ratingElement = ratingElements[i];
+                    const stars = ratingElement.getElementsByClassName("rating-star");
+                    const initialRating = ratingElement.dataset.rating || 0;
+
+                    for (let j = 0; j < stars.length; j++) {
+                        const star = stars[j];
+                        star.addEventListener("click", () => updateRating(ratingElement, j + 1));
+                    }
+
+                    updateRating(ratingElement, initialRating);
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", initRatings);
+        </script>
+    </body>
+</html>
