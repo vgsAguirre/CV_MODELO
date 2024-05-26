@@ -8,7 +8,7 @@
 		body.default {
 			font-family: Arial, sans-serif;
 			background-color: #f2f2f2;
-			padding: 20px;
+			padding: 10px;
 			font-size: 16px;
 			color: #333;
 			margin-bottom: 5px;
@@ -21,6 +21,7 @@
 			font-size: 28px;
 			margin-bottom: 10px;
 			color: #000;
+			text-align: center;
 		}
 
 		body.default h2 {
@@ -30,14 +31,15 @@
 		}
 
 		body.default p {
-			margin-bottom: 5px;
+			margin-bottom: 1px;
+			line-height: 1;
 		}
 
 		body.default .section {
-			margin-bottom: 1%;
+			margin-bottom: 0.3%;
 			background-color: #fff;
-			padding: 15px;
-			border-radius: 10px;
+			padding: 5px;
+			border-radius: 15px;
 			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 		}
 
@@ -147,6 +149,8 @@
 			margin-bottom: 20px;
 		}
 
+		/* Extras */
+
 		.style-switcher button {
 			background-color: #4caf50;
 			color: #fff;
@@ -224,6 +228,14 @@
 			word-wrap: break-word; /* Adicionando esta propriedade para permitir que o texto longo seja quebrado em várias linhas */
 		}
 
+		.invisible {
+			display: none;
+		}
+
+		.experience-item .custom-line-height {
+				line-height: 0;
+			}
+
 		@keyframes star-glow {
 			0% {
 				color: #ffc107;
@@ -242,27 +254,30 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/17.0.10/umd/i18next.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react-i18next/11.8.19/react-i18next.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.6/mammoth.browser.min.js"></script>
     </head>
+	
     <body class="default">
         <div class="style-switcher">
             <button onclick="changeStyle('default')" class="controle-button">Estilo Padrão</button>
             <button onclick="changeStyle('alternative2')" class="controle-button">Estilo Novo</button>
             <button onclick="exportToPDF()" class="controle-button">Exportar em PDF</button>
+			<button onclick="exportToDOC()" class="controle-button">Exportar em DOC</button>
+			<button onclick="exportToDOCX()" class="controle-button">Exportar em DOCX</button>
             <button id="language-button" onclick="toggleLanguage()" class="controle-button" title="Ainda não está funcional">Alternar Idioma</button>
         </div>
-        <h1>Currículo Vitae</h1>
+        <h1 center>Vinícius Gomes da Silva</h1>
         <table>
             <tr>
                 <td width="100%">
                     <div class="section">
-                        <h2>Informações Pessoais</h2>
-                        <p>Vinícius Gomes da Silva</p>
+                        <h2>Desenvolvedor Backend Java</h2>
                         <p>Porto Alegre - RS – Brasil</p>
                         <p>Data de Nascimento: 11/01/1988, 36 anos</p>
                         <p>Email: vgs.aguirre@gmail.com</p>
                         <p>Celular: +55 51 983431677</p>
                         <p>Recado: +55 51 984887101</p>
-                        <p>Linkedin: <a href="https://www.linkedin.com/in/vin%C3%ADcius-gomes-da-silva-662bab21/">www.linkedin.com</a></p>
+                        <p>Linkedin: <a href="https://www.linkedin.com/in/vin%C3%ADcius-gomes-da-silva-662bab21/">www.linkedin.com/in/vinícius-gomes-da-silva-662bab21</a></p>
                     </div>
                 </td>
                 <!--             <td width="35%" class="margem-td">
@@ -334,145 +349,156 @@
             </td> -->
             </tr>
         </table>
-        <div class="section">
-            <h2>Perfil Profissional</h2>
-            <p>Sólida carreira desenvolvida na área de Tecnologia da Informação, com experiência no desenvolvimento de software, manutenção de sistemas e implementação de melhorias, utilizando metodologias ágeis. Ao longo dos anos,
-                trabalhei em empresas de grande porte e multinacionais, o que me proporcionou um ambiente dinâmico e desafiador.</p>
-            <p>Minha trajetória profissional inclui o desenvolvimento de sistemas utilizando diversas tecnologias, como Java, Spring Boot, Hibernate, JPA, JDBC, além de conhecimentos em bancos de dados relacionais e não relacionais. Também
-                possuo experiência no desenvolvimento e manutenção de APIs Micro Serviço, com conhecimentos em SOAP, REST/RESTful API, XML e JSON.</p>
-            <p>Além disso, tenho habilidades em Docker, Kubernetes e Azure DevOps, o que me permite trabalhar com ambientes de desenvolvimento e implantação modernas. Estou familiarizado com metodologias ágeis, como o SCRUM, e possuo um
-                histórico comprovado de entrega de projetos no prazo e dentro do orçamento.</p>
-			<p>Estou constantemente buscando atualizações e aprimoramentos profissionais, sempre em busca de novas tecnologias e melhores práticas. Sou apaixonado por desenvolvimento de software e estou comprometido em entregar soluções de
-                alta qualidade, que atendam às necessidades dos clientes e promovam a eficiência dos processos.
-</p>
-        </div>
-
-        <div class="section">
-            <h2>Formação Acadêmica</h2>
-            <p>Arquitetura de Software - 2023 em andamento</p>
-			<p>Análise e Desenvolvimento de Sistemas – concluído em 2011</p>
-            <p>Faculdade de tecnologia SENAC-RS</p>
-            <h3>Cursos e Especializações</h3>
-            <ul>
-                <li>Java Completo 2023 Programação Orientada a Objetos</li>
-            </ul>
-            <ul>
-                <li>Testes unitários em JAVA: Domine JUnit, Mockito e TDD</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>Habilidades Técnicas</h2>
-            <div class="skills">
-                <span class="skills-item">Java</span>
-                <span class="skills-item">Javascript</span>
-                <span class="skills-item">C++</span>
-                <span class="skills-item">SQL</span>
-                <span class="skills-item">CSS</span>
-                <span class="skills-item">HTML</span>
-                <span class="skills-item">Spring Framework Spring Boot</span>
-                <span class="skills-item">Spring Data</span>
-                <span class="skills-item">Spring MVC</span>
-                <span class="skills-item">Spring Security</span>
-                <span class="skills-item">Hibernate</span>
-                <span class="skills-item">JPA/JTA</span>
-                <span class="skills-item">React JS</span>
-                <span class="skills-item">JDBC</span>
-                <span class="skills-item">Oracle</span>
-                <span class="skills-item">MySQL</span>
-                <span class="skills-item">PL/SQL</span>
-                <span class="skills-item">GitHub</span>
-                <span class="skills-item">Jenkins</span>
-                <span class="skills-item">Agile Methodologies</span>
-                <span class="skills-item">Docker</span>
-                <span class="skills-item">Kubernetes</span>
-                <span class="skills-item">Azure DevOps</span>
-				<span class="skills-item">KeyCloack</span>
-                <span class="skills-item">JUnit5</span>
-                <span class="skills-item">Mockito </span>
-               
-            </div>
-        </div>
-        <div class="section">
-            <h2>Idiomas</h2>
-            <p>Inglês Técnico - Avançado</p>
-            <p>Inglês - Intermediário</p>
-            <p>Espanhol - Básico</p>
-			<p>Português - Nativo</p>
-        </div>
-        <div class="section">
-            <h2>Experiência Profissional</h2>
-            <div class="experience-item">
-                <h3>Ernst & Young Global Limited</h3>
-                <p>Cargo: Desenvolvedor de Software Sênior</p>
-                <p>Período: Fevereiro 2022 – atual</p>
-                <p>Atividades Em:</p>
-                <ul>
-                    <li>Desenvolvimento de sistemas utilizando Java, Spring Boot, Hibernate, JPA, JDBC;</li>
-                    <li>Análise de requisitos;</li>
-                    <li>Desenvolvimento e manutenção de APIs Micro Serviço REST/SOAP;</li>
-                    <li>Experiência com metodologias ágeis (SCRUM);</li>
-                    <li>Testes unitários JUnit5 e mockito;</li>
-                    <li>Experiência com banco de dados relacional (ORACLE, SQL, PLSQL, POSTGREE, MYSQL) e não relacional(MongoDB);</li>
-                    <li>Conhecimentos de Docker, Kubernetes, Azure DevOps.</li>
-                </l>
-            </div>
-            <div class="experience-item">
-                <h3>NBC Bank S/A - Banco Múltiplo (Instituição Financeira)</h3>
-                <p>Cargo: Desenvolvedor de Software Pleno</p>
-                <p>Período: Abril 2020 – 18/02/2022</p>
-                <p>Atividades Em:</p>
-                <ul>
-                    <li>Desenvolvimento de sistemas utilizando Java, Spring Boot, Hibernate, JPA, JDBC, PL/SQL;</li>
-                    <li>Análise de requisitos;</li>
-                    <li>Desenvolvimento e manutenção de APIs Micro Serviço;</li>
-                    <li>Conhecimento em Pentaho e Kafka;</li>
-                    <li>Experiência com metodologias ágeis (SCRUM;</li>
-                    <li>Conhecimento em SOAP e REST/RESTFull Api, XML, JSON;</li>
-                    <li>Experiência com banco de dados relacional (ORACLE, SQL);</li>
-                    <li>Conhecimentos de Docker, Kubernetes, Azure DevOps.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Salux – Informatização em saúde (Prestação de serviços para a área da saúde)</h3>
-                <p>Cargo: Analista Desenvolvedor</p>
-                <p>Período: Set 2017 – Mar 2018</p>
-                <p>Atividades Em:</p>
-                <ul>
-                    <li>Desenvolvimento de novas funcionalidades e manutenção de sistema voltado para a área da saúde, utilizando VB.Net e SQL Server;</li>
-                    <li>Utilização de metodologias ágeis.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Unicred do Brasil (Instituição Financeira Cooperativa)</h3>
-                <p>Cargo: Desenvolvedor de Software Pleno</p>
-                <p>Período: Jan 2015 – Ago 2017</p>
-                <p>Atividades Em:</p>
-                <ul>
-                    <li>Desenvolvimento e manutenção de sistemas financeiros voltados às Cooperativas de crédito, utilizando PowerBuilder e Sql Server;</li>
-                    <li>Utilização de metodologias ágeis.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Tools Software (Prestação de serviços para o mercado financeiro</h3>
-                <p>Cargo: Desenvolvedor de Software Pleno</p>
-                <p>Período: Fev 2012 – Dez 2014</p>
-                <p>Atividades Em:</p>
-                <ul>
-                    <li>Sustentação dos produtos Financeiros da empresa, utilizando PowerBuilder e Oracle/SQL Server/Sybase;</li>
-                    <li>Análise de requisitos.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Stefanini IT Solutions (Multinacional Brasileira Privada)</h3>
-                <p>Cargo: Desenvolvedor de Software Jr</p>
-                <p>Período: Jan 2011 – Jan 2012</p>
-                <p>Atividades Em:</p>
-                <ul>
-                    <li>Desenvolvimento de novas funcionalidades e manutenção de sistemas utilizando PowerBuilder (8 e 11.5), Visual Basic 6 e Oracle;</li>
-                    <li>Homologação e deploy para Produção.</li>
-                </ul>
-            </div>
-        </div>
+		<td width="100%">
+			<div class="section">
+				<h2>Resumo Profissional</h2>
+				<p>Desenvolvedor Backend Java com sólida experiência em desenvolvimento de software, manutenção de sistemas e implementação de melhorias usando metodologias ágeis. Proficiente em Java, Spring Boot, Hibernate, JPA e JDBC. Experiência em APIs REST/RESTful e SOAP, com habilidades em Docker, Kubernetes e Azure DevOps. Competente em entregar projetos no prazo e dentro do orçamento, utilizando metodologias ágeis como SCRUM.</p>
+			</div>
+		</td>
+		<td width="100%">
+			<div class="section">
+			<h2>Habilidades Interpessoais</h2>
+			<h2 class='invisible'>Soft Skills</h2>
+			<p>
+				<ul style="line-height: 1.5;">
+					<li><strong>Comunicação Eficaz</strong>: Clareza na transmissão de ideias e colaboração entre equipes.</li>
+					<li><strong>Trabalho em Equipe</strong>: Experiência em metodologias ágeis, como SCRUM, com participação ativa em cerimônias ágeis.</li>
+					<li><strong>Liderança</strong>: Orientação técnica e liderança em projetos de desenvolvimento de software.</li>
+					<li><strong>Resolução de Problemas</strong>: Habilidade para identificar e resolver problemas complexos de software.</li>
+					<li><strong>Gestão de Tempo</strong>: Capacidade de gerenciar múltiplas tarefas e cumprir prazos.</li>
+					<li><strong>Adaptabilidade</strong>: Flexibilidade para aprender e implementar novas tecnologias e metodologias.</li>
+					<li><strong>Proatividade</strong>: Iniciativa para implementar melhorias e soluções inovadoras.</li>
+					<li><strong>Análise Técnica</strong>: Competência em analisar requisitos e desenvolver soluções eficazes.</li>
+					<li><strong>Colaboração</strong>: Empatia e habilidade para trabalhar harmoniosamente com colegas e clientes.</li>
+					<li><strong>Qualidade</strong>: Compromisso com testes unitários rigorosos e revisões de código para garantir a qualidade.</li>
+				</ul>
+			</p>
+			</div>
+		</td>
+		<td width="100%">
+			<div class="section">
+				<h2>Educação</h2>
+				<h2 class="invisible">Education</h2>
+				<p><strong>Pós-Graduação em Arquitetura de Software</strong></p>
+				<ul>
+					<li>Faculdade Anhanguera</li>
+					<li>Início: Novembro de 2023</li>
+					<li>Previsão de Conclusão: Setembro de 2024</li>
+				</ul>
+				<p><strong>Tecnólogo em Análise e Desenvolvimento de Sistemas</strong></p>
+				<ul>
+					<li>Faculdade de Tecnologia SENAC-RS</li>
+					<li>Concluído: Janeiro de 2011</li>
+				</ul>
+				<p><strong>Cursos e Especializações</strong></p>
+				<ul>
+					<li>Java Completo 2023 Programação Orientada a Objetos | Concluído em 2020 na Udemy</li>
+					<li>Testes unitários em JAVA: Domine JUnit, Mockito e TDD | Concluído em 2023 na Udemy</li>
+				</ul>
+			</div>
+		</td>
+		<td width="100%">
+			<div class="section">
+				<h2>Habilidades Técnicas</h2>
+				<div class="skills">
+					<ul>
+					<li><strong>Linguagens de Programação:</strong> Java, PL/SQL, PowerBuilder </li>
+					<li><strong>Frameworks e Bibliotecas:</strong> Spring Framework, Spring Boot, Spring Data, Spring MVC, Spring Security, Hibernate, JPA/JTA, React JS, JDBC</li>
+					<li><strong>Banco de Dados Relacionais:</strong> Oracle, MySQL, PostgreSQL, SQL</li>
+					<li><strong>Banco de Dados Não Relacionais:</strong> MongoDB</li>
+					<li><strong>Ferramentas e Tecnologias:</strong> GitHub, Jenkins, Docker, Kubernetes, Azure DevOps, Keycloak, JUnit5, Mockito</li>
+					<li><strong>Metodologias Ágeis:</strong> SCRUM</li>
+					</ul>
+				</div>
+				<!-- <div class="skills">
+					<span class="skills-item">Java</span>
+					<span class="skills-item">Javascript</span>
+					<span class="skills-item">C++</span>
+					<span class="skills-item">SQL</span>
+					<span class="skills-item">CSS</span>
+					<span class="skills-item">HTML</span>
+					<span class="skills-item">Spring Framework Spring Boot</span>
+					<span class="skills-item">Spring Data</span>
+					<span class="skills-item">Spring MVC</span>
+					<span class="skills-item">Spring Security</span>
+					<span class="skills-item">Hibernate</span>
+					<span class="skills-item">JPA/JTA</span>
+					<span class="skills-item">React JS</span>
+					<span class="skills-item">JDBC</span>
+					<span class="skills-item">Oracle</span>
+					<span class="skills-item">MySQL</span>
+					<span class="skills-item">PL/SQL</span>
+					<span class="skills-item">GitHub</span>
+					<span class="skills-item">Jenkins</span>
+					<span class="skills-item">Agile Methodologies</span>
+					<span class="skills-item">Docker</span>
+					<span class="skills-item">Kubernetes</span>
+					<span class="skills-item">Azure DevOps</span>
+					<span class="skills-item">KeyCloack</span>
+					<span class="skills-item">JUnit5</span>
+					<span class="skills-item">Mockito </span>
+				</div> -->
+			</div>
+		<td>	
+		<td width="100%">
+			<div class="section">
+				<h2>Idiomas</h2>
+				<p>
+					<ul>
+						<li>Inglês Intermediário - (Técnico - Intermediário)</li>
+						<li>Espanhol - Básico</li>
+						<li>Português - Nativo</li>
+					</ul>
+				</p>
+			</div>
+		</td>
+		<td width="100%">
+			<div class="section">
+				<h2>Experiência Profissional</h2>
+				<h2 class="invisible">Work History</h2>
+				<div class="experience-item">
+					<p class="custom-line-height"><strong>Wansoft Brazil - HUB de tecnologia da informação</strong></p>
+					<p class="custom-line-height"><i>Desenvolvedor de Software Java Sênior</i></p>
+					<p class="custom-line-height">Fevereiro 2024 – Atual</p>
+					<ul>
+						<li>Desenvolvimento de sistemas com Java, Spring MVC, Hibernate, JPA, JDBC.</li>
+						<li>Análise de requisitos e desenvolvimento de APIs Micro Serviço REST.</li>
+						<li>Testes unitários com JUnit5 e Mockito.</li>
+						<li>Trabalhou com bancos de dados relacionais (PostgreSQL).</li>
+						<li>Lider técnico da equipe de backend e resposável pela controlede versionamento.</li>
+						<li>Participação em cerimônias ágeis (review, retrospectiva, planning, refinamentos).
+						<li>Contato direto com clientes para entender requisitos e esclarecer dúvidas.</li>
+						</li>
+					</ul>
+					
+				</div>
+				<div class="experience-item">
+					<p class="custom-line-height"><strong>Ernst & Young Global Limited</strong></p>
+					<p class="custom-line-height"><i>Desenvolvedor de Software Sênior</i></p>
+					<p class="custom-line-height">Fevereiro 2022 – 20/03/2024</p>	
+					<ul>
+						<li>Desenvolvimento de sistemas com Java, Spring Boot, Hibernate, JPA, JDBC.</li>
+						<li>Análise de requisitos e desenvolvimento de APIs Micro Serviço REST/SOAP.</li>
+						<li>Testes unitários com JUnit5 e Mockito.</li>
+						<li>Trabalhou com bancos de dados relacionais (Oracle, MySQL, PostgreSQL) e não relacionais (MongoDB).</li>
+						<li>Experiência com Docker, Kubernetes, e Azure DevOps.</li>
+						<li>Participação em cerimônias ágeis (review, retrospectiva, planning, refinamentos).</li>
+					</ul>	
+				</div>
+				<div class="experience-item">
+					<p class="custom-line-height"><strong>NBC Bank S/A - Banco Múltiplo (Instituição Financeira)</strong><p>
+					<p class="custom-line-height"><i>Desenvolvedor de Software Pleno</i></p>
+					<p class="custom-line-height">Abril 2020 – 18/02/2022</p>
+					<ul>
+						<li>Desenvolvimento de sistemas utilizando Java, Spring Boot, Hibernate, JPA, JDBC, PL/SQL.</li>
+						<li>Desenvolvimento e manutenção de APIs Micro Serviço.</li>
+						<li>Conhecimento em Pentaho e Kafka.</li>
+						<li>Trabalhou com bancos de dados relacionais (Oracle, MySQL) e metodologias ágeis (SCRUM).</li>
+						<li>Experiência com Docker, Kubernetes, e Azure DevOps.</li>
+					</ul>
+				</div>
+			</div>
+		</td>
         <script>
             function changeStyle(style) {
                 document.body.className = style;
@@ -508,7 +534,7 @@
                     margin: [0, 0, 0, 0],
                     filename: "Vinicius_Gomes_da_Silva_CV.pdf",
                     image: { type: "jpeg", quality: 1 },
-                    html2canvas: { scale: 2.5 },
+                    html2canvas: { scale: 2.1 },
                     jsPDF: { unit: "mm", format: "a4", orientation: "portrait", format: [210, 297] }, // Ajusta o tamanho da página
                 };
 
@@ -569,6 +595,64 @@
             }
 
             document.addEventListener("DOMContentLoaded", initRatings);
+			
+			function exportToDOC() {
+				const buttons = document.querySelectorAll(".controle-button");
+				buttons.forEach((button) => {
+					button.style.visibility = "hidden"; // Oculta os botões antes da exportação
+				});
+
+				// Seleciona apenas o conteúdo da body
+				const bodyContent = document.body.innerHTML;
+
+				// Remove a linha com os botões do conteúdo HTML
+				const bodyContentCleaned = bodyContent.replace(/<div class="style-switcher">.*?<\/div>/s, '');
+
+				// Cria o conteúdo HTML completo, incluindo a tag body e o conteúdo selecionado
+				const fullHTML = "<html><head><title>Vinicius_Gomes_da_Silva_CV</title><meta charset='UTF-8'><style>body { text-align: justify; }</style></head><body>" + bodyContentCleaned + "</body></html>";
+
+				const blob = new Blob([fullHTML], { type: "application/msword;charset=utf-8" }); // Define a codificação como UTF-8
+				const url = URL.createObjectURL(blob);
+				const link = document.createElement("a");
+				link.href = url;
+				link.setAttribute("download", "Vinicius_Gomes_da_Silva_CV.doc");
+				document.body.appendChild(link);
+				link.click();
+
+				buttons.forEach((button) => {
+					button.style.visibility = "visible"; // Exibe novamente os botões após a exportação
+				});
+			}
+			
+			 function exportToDOCX() {
+				const buttons = document.querySelectorAll(".controle-button");
+				buttons.forEach((button) => {
+					button.style.visibility = "hidden"; // Oculta os botões antes da exportação
+				});
+
+				const bodyContent = document.body.innerHTML;
+				const bodyContentCleaned = bodyContent.replace(/<div class="style-switcher">.*?<\/div>/s, '');
+				console.log("bodyContentCleaned:", bodyContentCleaned); // Adicionando log para verificar o conteúdo limpo
+
+				mammoth.convert({ html: bodyContentCleaned })
+					.then(function (result) {
+						console.log("Mammoth conversion result:", result); // Adicionando log para verificar o resultado da conversão
+						const blob = new Blob([result.value], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
+						const url = URL.createObjectURL(blob);
+						const link = document.createElement("a");
+						link.href = url;
+						link.setAttribute("download", "Vinicius_Gomes_da_Silva_CV.docx");
+						document.body.appendChild(link);
+						link.click();
+
+						buttons.forEach((button) => {
+							button.style.visibility = "visible"; // Exibe novamente os botões após a exportação
+						});
+					})
+					.catch((err) => {
+						console.error("Erro ao converter para DOCX:", err);
+					});
+			}
         </script>
     </body>
 </html>
